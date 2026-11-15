@@ -27,7 +27,7 @@ function setup() {
   gameCanvas.addEventListener('contextmenu', (event) => event.preventDefault());
 
   player = new Sprite(205, 345, 28, 36);
-  player.physics = NONE;
+  player.collider = 'none';
   player.color = '#d98567';
   player.stroke = '#684b3e';
 
