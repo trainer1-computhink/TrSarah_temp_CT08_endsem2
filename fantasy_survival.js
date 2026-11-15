@@ -28,8 +28,7 @@ let messageText = '';
 let messageUntil = 0;
 
 function setup() {
-  const gameCanvas = new Canvas(GAME_WIDTH, GAME_HEIGHT);
-  canvasElement = gameCanvas.elt;
+  canvasElement = new Canvas(GAME_WIDTH, GAME_HEIGHT);
   canvasElement.addEventListener('contextmenu', (event) => event.preventDefault());
   textFont('Arial');
   textAlign(CENTER, CENTER);
