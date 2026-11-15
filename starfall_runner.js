@@ -137,7 +137,7 @@ function hazardColor(type) {
   return '#ffdf58';
 }
 
-function draw() {
+function update() {
   drawBackdrop();
   drawProgress();
 
