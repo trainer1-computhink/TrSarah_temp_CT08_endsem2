@@ -64,8 +64,7 @@
       <!-- <a href="basic.html" target ="_blank">Basic</a> -->
 
     </footer>
-  </body>
-  <script>
+    <script>
     const starfallLevels = ['Neon Outpost', 'Ion Foundry', 'Singularity Gate'];
     const starfallProgress = Number(localStorage.getItem('starfallRunUnlockedLevel') || '1');
     const starfallUnlocked = Number.isInteger(starfallProgress)
@@ -88,5 +87,6 @@
         starfallSelect.append(locked);
       }
     });
-  </script>
+    </script>
+  </body>
 </html>

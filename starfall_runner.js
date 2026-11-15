@@ -124,6 +124,7 @@ function createLevelSprites() {
     );
     sprite.color = hazardColor(hazardData.type);
     sprite.stroke = '#fff4d1';
+    sprite.opacity = hazardData.type === 'spike' ? 0 : 0.35;
     hazards.push({ sprite, worldX: hazardData.x, type: hazardData.type });
   });
 
@@ -266,7 +267,8 @@ function finishLevel(won) {
 
   if (won) {
     const unlockedThrough = Math.min(LEVELS.length, currentLevelIndex + 2);
-    const oldProgress = Number(localStorage.getItem(UNLOCK_KEY) || '1');
+    const storedProgress = Number(localStorage.getItem(UNLOCK_KEY) || '1');
+    const oldProgress = Number.isInteger(storedProgress) ? storedProgress : 1;
     localStorage.setItem(UNLOCK_KEY, String(Math.max(unlockedThrough, oldProgress)));
     updateStatus('won');
   } else {
