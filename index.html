@@ -31,7 +31,11 @@
       <div class="games">
         <a href="fantasy_survival.html">Emberwild: Survival</a>
         <a href="cottage_garden.html">Meadowlark Cottage Garden</a>
+        <a href="starfall_runner.html">Starfall Run</a>
       </div>
+      <h3>Starfall Run level select</h3>
+      <p>Beat a level to unlock the next one.</p>
+      <div id="starfall-level-select" class="games" aria-label="Starfall Run levels"></div>
     </section>
 
     <!-- My projects (add each time when a project is completed) -->
@@ -47,6 +51,10 @@
           <h3>Meadowlark Cottage Garden</h3>
           <p>Grow a little garden, harvest crops, and earn enough for the season.</p>
         </a>
+        <a href="starfall_runner.html" class="card">
+          <h3>Starfall Run</h3>
+          <p>Jump through three sci-fi platformer levels and unlock the next mission.</p>
+        </a>
       </div>
     </section>
 
@@ -57,4 +65,28 @@
 
     </footer>
   </body>
+  <script>
+    const starfallLevels = ['Neon Outpost', 'Ion Foundry', 'Singularity Gate'];
+    const starfallProgress = Number(localStorage.getItem('starfallRunUnlockedLevel') || '1');
+    const starfallUnlocked = Number.isInteger(starfallProgress)
+      ? Math.max(1, Math.min(starfallLevels.length, starfallProgress))
+      : 1;
+    const starfallSelect = document.querySelector('#starfall-level-select');
+
+    starfallLevels.forEach((levelName, index) => {
+      const levelNumber = index + 1;
+      if (levelNumber <= starfallUnlocked) {
+        const link = document.createElement('a');
+        link.href = `starfall_runner.html?level=${levelNumber}`;
+        link.textContent = `Level ${levelNumber}: ${levelName}`;
+        starfallSelect.append(link);
+      } else {
+        const locked = document.createElement('span');
+        locked.textContent = `Level ${levelNumber}: Locked`;
+        locked.style.cssText =
+          'background:#777;color:#eee;padding:10px 15px;border-radius:5px;opacity:.65;';
+        starfallSelect.append(locked);
+      }
+    });
+  </script>
 </html>
