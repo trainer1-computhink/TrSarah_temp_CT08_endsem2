@@ -6,7 +6,7 @@ const PLAYER_WIDTH = 38;
 const PLAYER_HEIGHT = 42;
 const UNLOCK_KEY = 'starfallRunUnlockedLevel';
 const RUN_SPEED = 4.2;
-const JUMP_SPEED = -16;
+const JUMP_SPEED = -10.5;
 
 const LEVELS = [
   {
